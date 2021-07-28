@@ -7,7 +7,7 @@ from json import loads, dumps
 
 
 config = configparser.ConfigParser()
-config.read('../../config.ini')
+config.read('config.ini')
 
 
 @pytest.fixture
@@ -18,7 +18,7 @@ def auth_login():
     }
 
     response = requests.post(
-        url=config['NEXT_GEN']['base_url'] + '/auth/login', 
+        url=config['NEXT_GEN']['base_url'] + '/auth/login',
         json=data,
         headers=headers.HEADERS
     )

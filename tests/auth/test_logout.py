@@ -3,7 +3,7 @@ import configparser
 
 
 config = configparser.ConfigParser()
-config.read('../../config.ini')
+config.read('config.ini')
 
 
 def test_auth_logout_expected_200(auth_login):
