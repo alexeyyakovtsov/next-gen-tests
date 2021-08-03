@@ -22,7 +22,7 @@ def test_auth_login_expected_200():
     assert response.json() is not None
 
 
-def test_auth_login_expected_422():
+def test_auth_login_expected_403():
     random_data = randomaizer.RandomData()
     random_word = random_data.generate_word(5)
 
@@ -36,4 +36,4 @@ def test_auth_login_expected_422():
         json=data,
         headers=headers.HEADERS
     )
-    assert response.status_code == 422
+    assert response.status_code == 403

@@ -7,14 +7,14 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 
-def test_put_goal_id(auth_login, get_last_goal_id):
+def test_put_classes_id(auth_login, get_last_classes_id):
     headers= {"Authorization": "Bearer " + auth_login}
 
     random_data = randomaizer.RandomData()
     random_word = random_data.generate_word(5)
     
     response = requests.patch(
-        url=config['NEXT_GEN']['base_url'] + '/goals/' + get_last_goal_id,
+        url=config['NEXT_GEN']['base_url'] + '/classes/' + get_last_classes_id,
         headers=headers,
         json= {
             "name": random_word

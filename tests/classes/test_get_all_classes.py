@@ -6,11 +6,11 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 
-def test_get_goals_expected_200(auth_login):
+def test_get_all_classes_expected_200(auth_login):
     headers_a = {"Authorization": "Bearer " + auth_login}
 
     response = requests.get(
-        url=config['NEXT_GEN']['base_url'] + '/goals',
+        url=config['NEXT_GEN']['base_url'] + '/classes',
         headers=headers_a
     )
 

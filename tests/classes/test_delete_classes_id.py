@@ -5,11 +5,11 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 
-def test_delete_goal_id(auth_login, get_last_goal_id):
+def test_delete_classes_id(auth_login, get_last_classes_id):
     headers= {"Authorization": "Bearer " + auth_login}
 
     response = requests.delete(
-        url=config['NEXT_GEN']['base_url'] + '/goals/' + get_last_goal_id,
+        url=config['NEXT_GEN']['base_url'] + '/classes/' + get_last_classes_id,
         headers=headers
     )
 

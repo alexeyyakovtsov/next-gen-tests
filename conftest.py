@@ -3,7 +3,7 @@ import requests
 import configparser
 import headers.headers as headers
 import randomaizer
-from json import loads, dumps
+# from json import loads, dumps
 
 
 config = configparser.ConfigParser()
@@ -51,3 +51,29 @@ def get_last_goal_id(auth_login):
     )
 
     return response.json()[-1]["id"]
+
+
+@pytest.fixture
+def get_last_classes_id(auth_login):
+    headers_a = {"Authorization": "Bearer " + auth_login}
+
+    response = requests.get(
+        url=config['NEXT_GEN']['base_url'] + '/classes',
+        headers=headers_a
+    )
+
+    return response.json()[-1]["id"]
+
+
+@pytest.fixture
+def create_classes():
+    random_data = randomaizer.RandomData()
+    random_word = random_data.generate_word(5)
+
+    data = {
+        "name": random_word,
+        "category": "bae2129d-a447-46a5-b41b-8187c633e0c4",
+        "language": "36f567a3-00db-4b64-99b6-2ef616e43e78"
+    }
+
+    return data
